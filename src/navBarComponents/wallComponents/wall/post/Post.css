@@ -40,6 +40,10 @@
     overflow: hidden;
 }
 
+.progress-pic{
+    margin-top:5px;
+}
+
 .post-picture{
     margin: auto;
     width:75%;
