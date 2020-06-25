@@ -1,0 +1,99 @@
+.login-menu {
+    text-align: center;
+    max-width: 35%;
+    min-width: 500px;
+    margin: 5% auto;
+    background-color: #928392;
+    color: rgb(24, 24, 24);
+    border-style: solid;
+    border: solid 10px #4caf50;
+    border-radius: 2%;
+}
+
+.Login-logo{
+    margin-top: 10px;
+}
+
+.login-fm {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+.login-form{
+    margin: auto;
+    width: 50px;
+    margin-top: 1%;
+}
+
+.input-login {
+    text-align: right;
+    max-width: 75%;
+    min-width: 45%;
+    margin: auto;
+    margin-top: 2px;
+}
+
+#submit-login {
+    font-weight: bold;
+    border-color: black;
+    right: 39.5%;
+    margin: auto;
+    margin-top: 15px;
+}
+
+.indicator {
+    position: relative;
+    right: 39.4%;
+}
+
+.forget-pwd {
+    position: relative;
+    right: 37.6%;
+}
+
+@media only screen and (max-width: 400px) {
+    .login-menu {
+        min-width: 80%;
+    }
+}
+
+@media only screen and (max-width: 500px)  {
+    .login-menu {
+        min-width: 80%;
+    }
+    
+    #submit-login {
+        right: 29%;
+    }
+
+    .indicator {
+        position: relative;
+        right: 28%;
+    }
+
+    .forget-pwd {
+        position: relative;
+        right: 25%;
+    }
+}
+
+.headline {
+    font-size: 235%;
+    margin-top: 15px;
+}
+
+.lbl-login {
+    position: relative;
+    margin-right: 5%;
+    margin-top: 5%;
+    right: 40%;
+}
+
+#dropdownCheck2 {
+    margin-top: 6%;
+    height: 30%;
+    width: 5%;
+    right: 38%;
+}

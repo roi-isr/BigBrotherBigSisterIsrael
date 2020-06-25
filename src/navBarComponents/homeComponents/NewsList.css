@@ -1,0 +1,70 @@
+.home-list{
+    position: relative;
+    float: left;
+    left: 50px;
+    text-align: right;
+    font-size: 25px;
+    top: 22px;
+}
+
+.home-list .conn-element{
+    text-align: center;
+}
+
+.meeting-btn{
+    position: relative;
+    right: 523px;
+    float: left;
+    width: 171px;
+    height: 50px;
+    bottom:40px;
+    border-radius: 50%;
+}
+.watch-post-btn{
+    position: absolute;
+    width: 171px;
+    height: 50px;
+    left: 10px;
+    bottom: 5px;
+}
+
+.join-video{
+    position: relative;
+    width: 171px;
+    height: 50px;
+    right: 9px;
+}
+.friend-connected{
+    margin: auto;
+}
+
+.next-meeting-table{
+    float: left;
+    position: relative;
+    left: 173px;
+    margin-top: 40px ;
+    text-align: center;
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.video-invite{
+    position: relative;
+    float: left;
+    left:269px
+}
+.friend-disconnected .friend-last-seen{
+    margin: auto;
+}
+
+.next-meeting-loader{
+    position: relative;
+    left: 250px;
+    top: 80px;
+}
+
+.friend-last-seen{
+    margin: auto;
+    position: relative;
+    bottom:5px;
+}

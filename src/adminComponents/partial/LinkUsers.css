@@ -1,0 +1,38 @@
+.link-users-btn{
+    position:relative;
+    left:100px;
+    top:35px;
+    width:200px;
+}
+
+#inputLinkFirstName,#inputLinkLastName{
+    width: 500px;
+}
+
+.add-user-h{
+text-align: center;
+}
+
+#inputLinkFirstName{
+    position: relative;
+    right: 135px;
+}
+@media only screen and (max-width: 770px){
+#inputLinkLastName{
+    position: relative;
+   right: 150px;
+}
+.last-link-input-btn{
+    position: relative;
+    right: 150px;
+}
+.link-users-btn{
+    position:relative;
+    right: 30px;
+}
+}
+
+.first-link-input-btn{
+    position: relative;
+    right: 135px;
+}

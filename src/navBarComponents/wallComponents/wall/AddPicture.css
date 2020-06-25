@@ -1,0 +1,84 @@
+/* Adding picture popup */
+
+.add-pic-form-divs {
+    background: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    z-index: 10000;
+    left: 0px;
+}
+
+.add-pic-form-divs .helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.add-pic-form-divs>div {
+    background-color: #fff;
+    box-shadow: 5px 5px 30px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 600px;
+    min-height: 200px;
+    vertical-align: middle;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 15px 5%;
+}
+
+.add-pic-close {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-family: arial;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 25px;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    text-align: center;
+}
+
+.add-pic-close:hover {
+    background-color: #ccc;
+}
+
+#urlPic {
+    position: relative;
+    width: 100%;
+}
+
+.text-pic-lbl {
+    text-align: right;
+    font-size: 18px;
+    float: right;
+    font-weight: bold;
+}
+
+.img-uploader{
+    position: relative;
+    bottom: 5px;
+    left: 20px;
+}
+
+.btn.btn-success.publish-img {
+    left: -9px;
+    bottom: 20px;
+    max-width: 650px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px 0px rgba(0, 0, 0, 0.5);
+}

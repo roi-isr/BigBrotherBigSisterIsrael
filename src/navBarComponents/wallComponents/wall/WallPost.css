@@ -1,0 +1,102 @@
+.page-container {
+    width: 780px;
+    min-width: 400px;
+    max-width: 830px;
+}
+
+.wall-post-main {
+    background-color: #776078;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
+    margin-bottom: 30px;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.loader-past-posts{
+    position: relative;
+    top:5px;
+}
+
+.load-more-posts{
+    position: relative;
+    right:0px;
+}
+
+.wall-post-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    position: relative;
+    top:15px;
+    right: 5px;
+}
+
+.wall-post-mid {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 70%;
+}
+
+.wall-post-footer {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wall-post-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.wall-post-tip{
+    position: relative;
+    bottom: 45px;
+}
+.wall-new-post {
+    background-color: #EAEADF;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    min-height: 150px;
+    margin-bottom: 30px;
+    border-radius: 21px;
+    margin: auto;
+}
+
+.wall-post-b-a {
+    height: 35px;
+    background: #75a75b;
+    color: white;
+    text-align: center;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 110px;
+    right: 500px;
+}
+
+.wall-post-b-p {
+    height: 35px;
+    background: #75a75b;
+    color: white;
+    text-align: center;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 70px;
+}
+
+.wall-post-b-a:focus,.wall-post-b-p:focus{
+    outline: none;
+}

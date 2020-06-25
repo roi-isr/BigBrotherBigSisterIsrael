@@ -1,0 +1,30 @@
+.users-table{
+    position: relative;
+    float: right;
+    right: 18px;
+    top: 20px;
+    text-align: center;
+    font-size: 23.5px;
+    border:5px solid #776078;
+    border-radius: 10px; 
+    table-layout: fixed;
+}
+
+
+.show-no-link-btn{
+    position: relative;
+    left: 10px;
+    width: 120px;
+    top: 21px;
+}
+
+.table-div{
+    max-width: 2000px;
+}
+
+.user-table-indicator{
+    position: relative;
+    left: 500px;
+    top:100px;
+
+}

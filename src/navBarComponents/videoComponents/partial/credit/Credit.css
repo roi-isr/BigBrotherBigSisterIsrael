@@ -1,0 +1,9 @@
+.credit-text{
+position: relative;
+    float: right;
+    height: 20px;
+    width: 500px;
+    top: 10px;
+    right: 100px;
+    direction: ltr;
+}

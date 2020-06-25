@@ -1,0 +1,64 @@
+
+.vid-btn-main{
+    position: relative;
+    display: inline-block;
+    height: 100px;
+    width: 700px;
+    top: 10px;
+
+}
+
+.formId {
+    float: left;
+    font-weight: bold;
+}
+
+.id-num-lab {
+    width: 250px;
+    float: right;
+    margin-top: 15px;
+}
+
+input.input-id {
+    float: right;
+    width: 300px;
+    margin: 10px;
+    margin-left: 20px;
+}
+
+
+.start-buttons{
+position: relative;
+display: inline-block;
+width: 800px;
+height: 80px;
+bottom: 0px;
+left: 94px;
+}
+
+button.mute-btn{
+    position: absolute;;
+     margin-bottom: 28px;
+     margin-left:-20px;
+      bottom: 13px;
+       width: 120px;
+        text-align:center ;
+}
+
+button.stop-vid{
+    position: absolute;
+    bottom:15px;
+     left: 480px;
+      margin-left: 0px;
+       width: 120px;
+       text-align: center
+}
+
+button.create_room,button.hangup_btn,button.join_room,button.start_btn{
+    position: relative;
+    margin-left: 7px;
+    left: 2.4%;
+    bottom: 12%;
+} 
+
+

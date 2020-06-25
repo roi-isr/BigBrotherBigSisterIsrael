@@ -1,0 +1,36 @@
+.update-user-btn,.load-user-btn{
+    position: relative;
+    left: 325px;
+    margin-right: 20px;
+    top:5px;
+}
+
+.update-user-form {
+    width: 1000px;
+    height: 590px;
+    margin-right: 350px;
+    margin-left: 5px;
+    margin-top: 0;   
+}
+
+.update-user-h {
+    position: relative;
+    margin: 10px;
+    padding: 10px;
+    top: 0px;
+    text-align: center;
+}
+
+.title {
+    text-align: right;
+}
+
+.form-group {
+    padding: 4px;
+    direction: rtl;
+    text-align: right;
+}
+
+#inputAddress2{
+    width: 997px;
+} 
