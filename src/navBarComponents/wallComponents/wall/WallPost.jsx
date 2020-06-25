@@ -350,8 +350,8 @@ class WallPost extends React.Component {
                   doc_id: doc.id
                 }
                 Object.assign(copyArray, this.state.postArray);
-                copyArray.sort((a, b) => this.sortFunc(a, b));
                 copyArray.splice(ind, 0, uploadedPostObj)
+                copyArray.sort((a, b) => this.sortFunc(a, b));
                 this.setState({
                   postArray: [...copyArray]
                 });
