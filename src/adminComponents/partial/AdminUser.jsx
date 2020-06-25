@@ -41,8 +41,8 @@ class AdminUser extends Component {
               .then(() => {
                 var count = 0;
                 while (count <= 0) {
-                  alert("המשתמש נוסף למערכת בהצלחה!");
                   count++;
+                  alert("המשתמש נוסף למערכת בהצלחה!");
                 }
                 this.setState({
                   firstName: "", lastName: "", id: "",
