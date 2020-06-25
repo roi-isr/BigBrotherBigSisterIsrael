@@ -146,17 +146,25 @@ class VideoPage extends Component {
         .add(roomOffer);
 
       this.connectionHandler(roomRef, 'first_participant', 'second_participant'); // handle internet connection (based on ICE protocol)
-
-      await this.state.localPeer.setLocalDescription(offer);
-
+      try {
+        await this.state.localPeer.setLocalDescription(offer);
+      }
+      catch (e) {
+        console.log(e.name);
+      }
       var firstSnap = roomRef.onSnapshot(async snapshot => { // waiting for an answer
         const data = snapshot.data();
-        if (!this.state.localPeer.currentRemoteDescription && typeof (data.answer) !== 'undefined') {
-          console.log(`Got update room is ${snapshot.id}`)
-          console.log(`Set remote description: ${data.answer}`);
-          const answer = new RTCSessionDescription(data.answer);
-          console.log(answer);
-          await this.state.localPeer.setRemoteDescription(answer);
+        try {
+          if (!this.state.localPeer.currentRemoteDescription && typeof (data.answer) !== 'undefined') {
+            console.log(`Got update room is ${snapshot.id}`)
+            console.log(`Set remote description: ${data.answer}`);
+            const answer = new RTCSessionDescription(data.answer);
+            console.log(answer);
+            await this.state.localPeer.setRemoteDescription(answer);
+          }
+        }
+        catch (e) {
+          console.log(e.name);
         }
       });
       this.setState({ firstSnapShot: firstSnap });
@@ -276,15 +284,23 @@ class VideoPage extends Component {
 
   connectionHandler = async (roomRef, localName, remoteName) => { // handle internet connection
     const candidateCol = roomRef.collection(localName);
-    this.state.localPeer.addEventListener('icecandidate', event => {
-      if (event.candidate) {
-        const jsonData = event.candidate.toJSON();
-        candidateCol.add(jsonData);
-      }
-    });
-
-    this.state.localPeer.onconnectionstatechange = this.onIceChanged;
-
+    try {
+      this.state.localPeer.addEventListener('icecandidate', event => {
+        if (event.candidate) {
+          const jsonData = event.candidate.toJSON();
+          candidateCol.add(jsonData);
+        }
+      });
+    }
+    catch (e) {
+      console.log(e.name)
+    }
+    try {
+      this.state.localPeer.onconnectionstatechange = this.onIceChanged;
+    }
+    catch (e) {
+      console.log(e.name)
+    }
     var secondSnap = roomRef.collection(remoteName).onSnapshot(snapshot => {
       snapshot.docChanges().forEach(change => {
         if (change.type === "added" || change.doc.data()) {

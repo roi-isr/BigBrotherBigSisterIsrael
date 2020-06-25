@@ -15,8 +15,8 @@ class AdminUser extends Component {
       address: "",
       area: "",
       birthDate: "",
-      type: ""
-
+      type: "",
+      addOnce: true
     };
   }
 
@@ -24,7 +24,8 @@ class AdminUser extends Component {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         this.usersRef.doc(user.uid).get().then(doc => {
-          if (!doc.exists) {
+          if (!doc.exists && this.state.addOnce) {
+            this.setState({ addOnce: false });
             var newUser = {
               fName: this.state.firstName,
               lName: this.state.lastName,
@@ -39,12 +40,8 @@ class AdminUser extends Component {
               newUser.address = this.state.address;
             this.usersRef.doc(user.uid).set(newUser)
               .then(() => {
-                var count = 0;
-                while (count <= 0) {
-                  count++;
                   alert("המשתמש נוסף למערכת בהצלחה!");
-                }
-                this.setState({
+                this.setState({addOnce: true,
                   firstName: "", lastName: "", id: "",
                   email: "", phone: "", address: "", area: "",
                   birthDate: "", type: ""

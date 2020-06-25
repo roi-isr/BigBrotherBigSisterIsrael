@@ -202,8 +202,9 @@ class App extends Component {
         })
       }).then(() => {
         console.log("Doc has removed successfully")
-      }).catch(() => {
-        console.error("Problem in removing Doc")
+      })
+      .catch(() => {
+        console.log("Problem in removing Doc")
       })
   }
 

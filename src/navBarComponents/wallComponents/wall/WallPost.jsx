@@ -21,7 +21,8 @@ class WallPost extends React.Component {
       currId: 0,
       lastPostVisible: null,
       loadedAll: false,
-      loadingPastPosts: false
+      loadingPastPosts: false,
+      uploadedPost: false
     };
     this.usersRef = firebase.firestore().collection('Users');
     this.cloudRef = firebase.storage().ref();
@@ -202,6 +203,9 @@ class WallPost extends React.Component {
       alert("יש להכניס טקסט ליצירת פרסום");
       return;
     }
+    if (this.state.uploadedPost)
+      return;
+    this.setState({ uploadedPost: true })
     var postDocId;
 
     var postObj = {
@@ -242,15 +246,23 @@ class WallPost extends React.Component {
             for (let i = 0; i < this.ImageFiles.length; i++) {
               if (postObj.img)
                 var a = this.cloudRef.child("wall_pictures/" + postDocId + "/pic" + i).put(this.ImageFiles[i]);
-              a.on('state_changed', (snapshot) => {
-                this.setState({ uploadProgress: (snapshot.bytesTransferred / snapshot.totalBytes) * 100 });
-              })
+              try {
+                a.on('state_changed', (snapshot) => {
+                  this.setState({ uploadProgress: (snapshot.bytesTransferred / snapshot.totalBytes) * 100 });
+
+                })
+              }
+              catch (e) {
+                console.log(e.name);
+              }
             }
           })
           .then(() => {
             this.setState({ textInput: "" });
             this.body = "";
             this.Image = [];
+            this.setState({ uploadedPost: false });
+            this.ImageFiles = [];
           })
       })
       .catch((e) => console.log(e.name));
