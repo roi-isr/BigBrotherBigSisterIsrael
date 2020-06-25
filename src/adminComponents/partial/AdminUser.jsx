@@ -22,36 +22,38 @@ class AdminUser extends Component {
 
   componentDidMount() {
     firebase.auth().onAuthStateChanged(user => {
-      this.usersRef.doc(user.uid).get().then(doc => {
-        if (user && !doc.exists) {
-          var newUser = {
-            fName: this.state.firstName,
-            lName: this.state.lastName,
-            id: this.state.id,
-            email: this.state.email,
-            phone: this.state.phone,
-            area: this.state.area,
-            type: this.state.type,
-            birthDate: this.state.birthDate
-          }
-          if (this.state.address !== "")
-            newUser.address = this.state.address;
-          this.usersRef.doc(user.uid).set(newUser)
-            .then(() => {
-              var count = 0;
-              while (count <= 0) {
-                alert("המשתמש נוסף למערכת בהצלחה!");
-                count++;
-              }
-              this.setState({
-                firstName: "", lastName: "", id: "",
-                email: "", phone: "", address: "", area: "",
-                birthDate: "", type: ""
+      if (user) {
+        this.usersRef.doc(user.uid).get().then(doc => {
+          if (!doc.exists) {
+            var newUser = {
+              fName: this.state.firstName,
+              lName: this.state.lastName,
+              id: this.state.id,
+              email: this.state.email,
+              phone: this.state.phone,
+              area: this.state.area,
+              type: this.state.type,
+              birthDate: this.state.birthDate
+            }
+            if (this.state.address !== "")
+              newUser.address = this.state.address;
+            this.usersRef.doc(user.uid).set(newUser)
+              .then(() => {
+                var count = 0;
+                while (count <= 0) {
+                  alert("המשתמש נוסף למערכת בהצלחה!");
+                  count++;
+                }
+                this.setState({
+                  firstName: "", lastName: "", id: "",
+                  email: "", phone: "", address: "", area: "",
+                  birthDate: "", type: ""
+                })
               })
-            })
-            .catch((e) => console.log(e.name))
-        }
-      })
+              .catch((e) => console.log(e.name))
+          }
+        })
+      }
     })
   }
 

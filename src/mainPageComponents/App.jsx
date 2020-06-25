@@ -51,6 +51,7 @@ class App extends Component {
       link_user: "",
       profilePicture: "",
       friendProfile: "",
+      stopSnap: null,
       zoom: Math.min(window.innerHeight / 620, window.innerWidth / 1536)
     };
     this.usersRef = firebase.firestore().collection('Users');
@@ -58,6 +59,11 @@ class App extends Component {
     this.currUserUid = firebase.auth().currentUser.uid;
     this.cloudRef = firebase.storage().ref();
     this.myProfilePicturesRef = this.cloudRef.child('profile_pictures/' + firebase.auth().currentUser.uid);
+  }
+
+  componentWillUnmount() {
+    if (this.state.stopSnap)
+      this.state.stopSnap();
   }
 
   logout = () => {
@@ -257,7 +263,7 @@ class App extends Component {
             else {
               this.setState({ isMounted: true });
               this.updateConnection();
-              this.usersRef.doc(this.currUserUid).collection('Rooms').onSnapshot(snapshot => { //listen to a room creation
+              var unsubscribe = this.usersRef.doc(this.currUserUid).collection('Rooms').onSnapshot(snapshot => { //listen to a room creation
                 snapshot.docChanges().forEach(change => {
                   if (this.state.otherUserConnection && change.type === "added" && change.doc.data() && !change.doc.data().answer) {
                     this.setState({ newVideo: "added" });
@@ -271,6 +277,7 @@ class App extends Component {
                     this.setState({ roomId: "", newVideo: "removed" });
                 });
               });
+              this.setState({ stopSnap: unsubscribe });
             }
           })
           .catch((e) => console.log(e.name));
