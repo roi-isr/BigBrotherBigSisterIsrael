@@ -38,7 +38,11 @@ class AdminUser extends Component {
             newUser.address = this.state.address;
           this.usersRef.doc(user.uid).set(newUser)
             .then(() => {
-              alert("המשתמש נוסף למערכת בהצלחה!");
+              var count = 0;
+              while (count <= 0) {
+                alert("המשתמש נוסף למערכת בהצלחה!");
+                count++;
+              }
               this.setState({
                 firstName: "", lastName: "", id: "",
                 email: "", phone: "", address: "", area: "",
