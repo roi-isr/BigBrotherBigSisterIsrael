@@ -49,10 +49,6 @@ class AppIndex extends Component {
     }
 
     componentDidMount() {
-        var webSiteWidth = 1280;
-        var webScale = window.screen.width / webSiteWidth
-        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + webSiteWidth + ', initial-scale=' + webScale + '');
-
         firebase.auth().onAuthStateChanged((user) => this.onAuthChanged(user));
     }
 

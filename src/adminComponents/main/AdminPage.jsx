@@ -27,6 +27,10 @@ class AdminPage extends Component {
     this.uid = firebase.auth().currentUser.uid;
   }
   componentDidMount() {
+    var webSiteWidth = 1280;
+    var webScale = window.screen.width / webSiteWidth
+    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + webSiteWidth + ', initial-scale=' + webScale + '');
+
     window.addEventListener("resize", this.resizeWin);
     this.usersRef.doc(this.uid).get()
       .then((doc) => {
