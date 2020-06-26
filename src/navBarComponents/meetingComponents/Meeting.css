@@ -4,11 +4,10 @@
     direction: rtl;
 }
 
-
-
 .meeting-title{
     margin-bottom: 30px;
 }
+
 .main form {
     position: absolute;
     left: 500px;
@@ -33,7 +32,6 @@ button {
 position: absolute;
 right: 275px;
 }
-
 
 .main-background {
     background-color: #EAEADF;

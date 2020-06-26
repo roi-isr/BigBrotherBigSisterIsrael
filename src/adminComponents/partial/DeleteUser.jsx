@@ -17,7 +17,7 @@ class DeleteUser extends Component {
       .get()
       .then((querySnapshot) => {
         if (querySnapshot.empty) {
-          alert("המשתמש שאתה מנסה למחוק לא קיים במערכת");
+          alert("המשתמש שאתה מנסה למחוק לא קיים במערכת.");
           throw Error(500);
         }
       })
@@ -39,7 +39,7 @@ class DeleteUser extends Component {
                 this.usersRef.doc(doc.data().link_user).update({ link_user: "" })
               doc.ref.delete()
                 .then(() => {
-                  alert(`המשתמש ${doc.data().fName + " " + doc.data().lName} נמחק מהמערכת`);
+                  alert(`המשתמש ${doc.data().fName + " " + doc.data().lName} נמחק מהמערכת.`);
                   this.setState({ id: "" })
                 }
                 );

@@ -17,7 +17,7 @@ export class Profile extends React.Component {
       <div className="profile-main">
         <div className="profile-top">
           <div className="profile-name">{this.props.userDetails.fName + " " + this.props.userDetails.lName}</div>
-          <img src={this.props.profilePic} alt="" className="profile-picture" style={{backgroundImage:`url(${logo})`}} />
+          <img src={this.props.profilePic} alt="" className="profile-picture" style={{ backgroundImage: `url(${logo})` }} />
         </div>
         <div className="profile-footer">
           <div className="profile-type-m-s">{this.props.userDetails.type}</div>
@@ -28,4 +28,5 @@ export class Profile extends React.Component {
     );
   }
 }
+
 export default Profile;

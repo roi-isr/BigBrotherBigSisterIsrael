@@ -8,7 +8,6 @@ class VidButtons extends Component {
 
   handleInputChange = (e) => {
     this.setState({ inputText: e.target.value });
-
   }
 
   join_room = (e) => {
@@ -43,8 +42,8 @@ class VidButtons extends Component {
             disabled={this.props.createDisable}>
             הזמן את {this.props.linkedName} לשיחת וידאו!
                      </button>
-
         </div>
+
       </div>
     );
   }

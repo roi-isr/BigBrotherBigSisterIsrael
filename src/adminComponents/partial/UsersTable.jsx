@@ -36,7 +36,7 @@ class UsersTable extends Component {
                     }
                 )
             })
-            // .catch((e) => console.log(e.name));
+            .catch((e) => console.log(e.name));
         this.usersRef
             .orderBy('type', 'desc')
             .orderBy('fName', 'asc')
@@ -59,7 +59,7 @@ class UsersTable extends Component {
                         }
                     })
             })
-            // .catch((e) => console.log(e.name));
+            .catch((e) => console.log(e.name));
     }
 
     renderLinked = (index, dataType) => {

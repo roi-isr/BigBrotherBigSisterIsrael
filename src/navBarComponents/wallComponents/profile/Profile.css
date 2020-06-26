@@ -13,15 +13,14 @@
    border-radius: 30px;
 }
 
-
 .profile-top{
     display: flex;
     flex-direction: column;
     align-items: center; 
     justify-content: space-evenly;
     height: 70%;
-
 }
+
 .profile-name{
 font-size: 1.3em;
 font-weight: bold;
@@ -37,7 +36,8 @@ border: solid 2px #776078;
 object-fit: cover;
 overflow: hidden;
 margin-top: 5px;
-}               
+}
+
 .profile-footer{
     display: flex;
     font-size: 1.1em;
@@ -48,12 +48,15 @@ margin-top: 5px;
     border-top: 1px solid gray;
     width: 90%;
 }
+
 .profile-type-m-s{
     color: #776078;
 }
+
 .profile-city{
     color: #776078;
 }
+
 .profile-birthday{
     color: #776078;
 }

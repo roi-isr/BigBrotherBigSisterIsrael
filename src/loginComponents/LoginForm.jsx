@@ -90,9 +90,8 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    // window.addEventListener("resize", this.resizeWin);
     return (
-      <div className="login-menu" /*style={{ zoom: this.state.zoom }}*/>
+      <div className="login-menu">
         <img
           src={logo}
           alt="asfsa"

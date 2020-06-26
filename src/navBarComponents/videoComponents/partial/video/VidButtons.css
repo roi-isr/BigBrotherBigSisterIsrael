@@ -26,7 +26,6 @@ input.input-id {
     margin-left: 20px;
 }
 
-
 .start-buttons{
 position: relative;
 display: inline-block;
@@ -60,5 +59,3 @@ button.create_room,button.hangup_btn,button.join_room,button.start_btn{
     left: 2.4%;
     bottom: 12%;
 } 
-
-

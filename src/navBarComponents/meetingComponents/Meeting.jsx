@@ -17,7 +17,7 @@ class Meeting extends Component {
       loadedAll: false,
       futureLength: 0,
       loadingPastMeetings: false,
-      schduled: false
+      scheduled: false
     };
     this.newDocId = "";
     this.myMeetingsRef = firebase.firestore().collection('Users').doc(firebase.auth().currentUser.uid).collection('Meetings');
@@ -112,16 +112,28 @@ class Meeting extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    var isSure = window.confirm(
-      "האם ברצונך לקבוע פגישה:\nבתאריך: " +
-      this.state.date +
-      "\nבשעה: " +
-      this.state.time +
-      "\nבמיקום: " +
-      this.state.place
-    );
+    var isSure;
+    if (!this.state.scheduled) {
+      isSure = window.confirm(
+        "האם ברצונך לקבוע פגישה:\nבתאריך: " +
+        this.state.date +
+        "\nבשעה: " +
+        this.state.time +
+        "\nבמיקום: " +
+        this.state.place
+      );
+    }
+    else
+      isSure = window.confirm(
+        "האם ברצונך לקבוע 13 פגישות קבועות לשלושת החודשים הקרובים:\nהחל מתאריך: " +
+        this.state.date +
+        "\nבשעה: " +
+        this.state.time +
+        "\nבמיקום: " +
+        this.state.place
+      );
     if (isSure) {
-      var amount_of_meetings = this.state.schduled ? 13 : 1;
+      var amount_of_meetings = this.state.scheduled ? 13 : 1;
       var dates = [], newMeetings = [], newMeetingObj = [];
       for (let i = 0; i < amount_of_meetings; i++) {
         var nextDate = (new Date(Date.parse(this.state.date) + (7 * 24 * 60 * 60 * 1000) * i));
@@ -141,7 +153,7 @@ class Meeting extends Component {
             this.mateMeetingsRef.doc(docRef.id).set(newMeetings[i]);
           })
           .then(() => {
-            if (!this.state.schduled) {
+            if (!this.state.scheduled && this.state.date !== "") {
               alert(
                 "נקבעה פגישה בתאריך: " +
                 this.state.date +
@@ -153,21 +165,20 @@ class Meeting extends Component {
             }
             else if (i === 0)
               alert(
-                "נקבעו 13 פגישות קבועות לשלושת החודשים הקרובים"
+                "נקבעו 13 פגישות קבועות לשלושת החודשים הקרובים."
               );
             Object.assign(newMeetingObj[i], newMeetings[i]);
             newMeetingObj[i].doc_id = this.newDocId;
             const d = [].concat(this.state.meetings).concat(newMeetingObj[i]).sort((a, b) => this.sortFunc(a, b));
             this.setState({
               meetings: [...d],
-              date: "", time: "", place: "", description: ""
+              date: "", time: "", place: "", description: "", scheduled: false
             });
           })
           .catch((e) => console.log(e.name));
       }
     }
   }
-
 
   sortFunc = (a, b) => {
     if (a.timeStamp > b.timeStamp)
@@ -259,9 +270,9 @@ class Meeting extends Component {
             <input
               type="checkbox"
               className="form-check-input w-25"
-              id="schuduledMeeting"
-              value={this.state.schduled}
-              onChange={(e) => this.setState({ schduled: !this.state.schduled })}
+              id="scheduledMeeting"
+              checked={this.state.scheduled}
+              onChange={(e) => this.setState({ scheduled: !this.state.scheduled })}
             />
             <label
               className="form-check-label check-meeting-lbl w-75"

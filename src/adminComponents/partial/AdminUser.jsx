@@ -38,16 +38,19 @@ class AdminUser extends Component {
             }
             if (this.state.address !== "")
               newUser.address = this.state.address;
-            this.usersRef.doc(user.uid).set(newUser)
-              .then(() => {
+            if (this.state.addOnce === false) {
+              this.usersRef.doc(user.uid).set(newUser)
+                .then(() => {
                   alert("המשתמש נוסף למערכת בהצלחה!");
-                this.setState({addOnce: true,
-                  firstName: "", lastName: "", id: "",
-                  email: "", phone: "", address: "", area: "",
-                  birthDate: "", type: ""
+                  this.setState({
+                    addOnce: true,
+                    firstName: "", lastName: "", id: "",
+                    email: "", phone: "", address: "", area: "",
+                    birthDate: "", type: ""
+                  })
                 })
-              })
-              .catch((e) => console.log(e.name))
+                .catch((e) => console.log(e.name))
+            }
           }
         })
       }
@@ -62,18 +65,19 @@ class AdminUser extends Component {
     this.usersRef.get()
       .then(querySnap => querySnap.forEach(doc => {
         if (doc.data().id === this.state.id) {
-          alert("כבר קיים משתמש במערכת עם מספר תעודת זהות זהה");
+          alert("כבר קיים משתמש במערכת עם מספר תעודת זהות זהה.");
           throw Error(500);
         }
       }))
       .then(() => {
         firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.id)
           .catch(() => {
-            alert("בעיה בהוספת משתמש חדש למערכת. ייתכן והסיסמא שהוכנסה קצרה או חלשה מדי או שהאימייל שהוכנס כבר קיים במערכת");
+            alert("בעיה בהוספת משתמש חדש למערכת. ייתכן והסיסמא שהוכנסה קצרה או חלשה מדי או שהאימייל שהוכנס כבר קיים במערכת.");
           })
       })
-      .catch(() => console.log("נוצרה בעיה בהוספת משתמש חדש למערכת"))
+      .catch(() => console.log("נוצרה בעיה בהוספת משתמש חדש למערכת."))
   }
+
   render() {
     return (
       <form className="add-user-form" onSubmit={this.addUser}>

@@ -68,11 +68,6 @@ export class HomePage extends React.Component {
     this.props.getNextMeeting();
     this.setState({ profilePicture: this.props.myProfilePic });
     this.getNewPostAlert();
-
-
-    // this.setState({ profilePicture: this.profirePicturesRef.getDownloadURL() },
-    // ()=>alert(this.state.profilePicture.))
-
   }
 
   componentDidUpdate(prevProp) {
@@ -89,7 +84,7 @@ export class HomePage extends React.Component {
   }
 
   deleteProfilePicture = () => {
-    var con = window.confirm("האם אתה בטוח שברצונך למחוק את תמונת הפרופיל הנוכחית שלך?");
+    var con = window.confirm("האם אתה בטוח שברצונך להסיר את תמונת הפרופיל הנוכחית שלך?");
     if (!con)
       return;
     this.myProfilePicturesRef.delete()
@@ -115,7 +110,7 @@ export class HomePage extends React.Component {
                 <div className="homepage-profile-name">
                   {this.props.myDetails.fName + " " + this.props.myDetails.lName}
                 </div>
-                <img src={this.state.profilePicture} alt="" className="homepage-profile-picture" style={{backgroundImage:`url(${logo})`}}/>
+                <img src={this.state.profilePicture} alt="" className="homepage-profile-picture" style={{ backgroundImage: `url(${logo})` }} />
               </div>
               <div className="homepage-profile-footer">
                 <div className="homepage-profile-type-m-s">
@@ -136,7 +131,7 @@ export class HomePage extends React.Component {
                 <div className="homepage-profile-name">
                   {this.props.linkedDetails.fName + " " + this.props.linkedDetails.lName}
                 </div>
-                <img src={this.props.friendProfilePic} alt="" className="homepage-profile-picture" style={{backgroundImage:`url(${logo})`}} />
+                <img src={this.props.friendProfilePic} alt="" className="homepage-profile-picture" style={{ backgroundImage: `url(${logo})` }} />
               </div>
               <div className="homepage-profile-footer">
                 <div className="homepage-profile-type-m-s">
@@ -153,7 +148,7 @@ export class HomePage extends React.Component {
           </div>
         </div>
         <button className="btn btn-success profile-upload-btn" onClick={this.uploadProfilePicture}>שנה תמונת פרופיל</button>
-        <button className="btn btn-danger profile-delete-btn" onClick={this.deleteProfilePicture}>מחק תמונת פרופיל</button>
+        <button className="btn btn-danger profile-delete-btn" onClick={this.deleteProfilePicture}>הסר תמונת פרופיל</button>
         <NewsList
           linked_name={this.props.linkedDetails.fName}
           connectToVideo={this.connectToVideo}

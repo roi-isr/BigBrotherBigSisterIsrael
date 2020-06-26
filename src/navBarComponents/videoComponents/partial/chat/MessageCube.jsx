@@ -35,7 +35,6 @@ class MessageCube extends Component {
                     className="actual-msg" >
                     {this.props.mes}
                 </h1>
-
             </div>
         );
     }

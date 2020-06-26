@@ -171,7 +171,7 @@ class VideoPage extends Component {
     });
   }
 
-  joinRoom = (guestId) => {
+  joinRoom = (guestId) => { // For joining a room with entering friend's room ID as an input (optional) 
     if (!this.state.isStarted) {
       alert("אנא לחץ על כפתור 'התחל שיחה'")
       return;

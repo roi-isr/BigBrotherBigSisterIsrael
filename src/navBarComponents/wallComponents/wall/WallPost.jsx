@@ -432,4 +432,5 @@ class WallPost extends React.Component {
     );
   }
 }
+
 export default WallPost;

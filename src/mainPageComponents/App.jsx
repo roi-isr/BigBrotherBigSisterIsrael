@@ -269,7 +269,7 @@ class App extends Component {
                   if (this.state.otherUserConnection && change.type === "added" && change.doc.data() && !change.doc.data().answer) {
                     this.setState({ newVideo: "added" });
                     this.setState({ roomId: change.doc.id }, () => {
-                      var con = window.confirm(`${this.state.linkedUserDetails.fName} הזמין אותך לשיחת וידאו. האם אתה מעוניין להצטרף ?`)
+                      var con = window.confirm(`${this.state.linkedUserDetails.fName} הזמין אותך לשיחת וידאו. האם אתה מעוניין להצטרף?`)
                       if (con)
                         this.directVid(false);
                     });

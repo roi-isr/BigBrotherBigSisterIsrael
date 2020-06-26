@@ -20,6 +20,7 @@
     bottom:40px;
     border-radius: 50%;
 }
+
 .watch-post-btn{
     position: absolute;
     width: 171px;
@@ -53,6 +54,7 @@
     float: left;
     left:269px
 }
+
 .friend-disconnected .friend-last-seen{
     margin: auto;
 }

@@ -54,29 +54,35 @@ position: relative;
 .chat-screen::-webkit-scrollbar{
     width: 8px;
 }
+
 .chat-screen::-webkit-scrollbar-thumb{
     background:teal;
     border-radius: 10px;
 }
+
 .chat-screen::-webkit-scrollbar-track{
     box-shadow: inset 0 0 7px gray;
     border-radius: 20px;
 }
+
 .chat-screen::-webkit-scrollbar-thumb:hover{
     background: rgb(2, 160, 160)
 }
+
 .chat-text::-webkit-scrollbar{
     width: 7px;
 }
+
 .chat-text::-webkit-scrollbar-thumb{
     background: green;
     border-radius: 10px;
 }
+
 .chat-text::-webkit-scrollbar-track{
     box-shadow: inset 0 0 7px gray;
     border-radius: 20px;
 }
+
 .chat-text::-webkit-scrollbar-thumb:hover{
-    background: rgb(6, 170, 6)
-    
+    background: rgb(6, 170, 6)  
 }

@@ -54,7 +54,7 @@ export class Post extends React.Component {
     if (this.props.uploader === this.userUid)
       return (
         <div className="post-profile">
-          <img src={this.props.myProfilePic} alt="" className="post-men-picture" style={{backgroundImage:`url(${logo})`}} />
+          <img src={this.props.myProfilePic} alt="" className="post-men-picture" style={{ backgroundImage: `url(${logo})` }} />
           <div className="post-men-name">{this.props.userName}</div>
         </div>
       );
@@ -62,7 +62,7 @@ export class Post extends React.Component {
     else
       return (
         <div className="post-profile">
-          <img src={this.props.friendProfilePic} alt="" className="post-men-picture" style={{backgroundImage:`url(${logo})`}} />
+          <img src={this.props.friendProfilePic} alt="" className="post-men-picture" style={{ backgroundImage: `url(${logo})` }} />
           <div className="post-men-name">{this.props.friendName}</div>
         </div>
       );
@@ -93,3 +93,5 @@ export class Post extends React.Component {
     );
   }
 }
+
+export default Post;

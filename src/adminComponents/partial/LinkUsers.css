@@ -17,15 +17,18 @@ text-align: center;
     position: relative;
     right: 135px;
 }
+
 @media only screen and (max-width: 770px){
 #inputLinkLastName{
     position: relative;
    right: 150px;
 }
+
 .last-link-input-btn{
     position: relative;
     right: 150px;
 }
+
 .link-users-btn{
     position:relative;
     right: 30px;
