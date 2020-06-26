@@ -2,7 +2,7 @@ import React from "react";
 import "./LoginForm.css";
 import firebase from "../config/Firebase";
 import Loader from "react-loader-spinner";
-import logo from '../static_pictures/big_brother_big_sister.png'
+import logo from '../static_pictures/big_brothers_big_sisters.png'
 
 class LoginForm extends React.Component {
   constructor(props) {

@@ -5,7 +5,7 @@ import DeleteUser from "../partial/DeleteUser";
 import UsersTable from "../partial/UsersTable"
 import LinkUsers from "../partial/LinkUsers";
 import firebase from "../../config/Firebase";
-import logo from '../../static_pictures/big_brother_big_sister.png';
+import logo from '../../static_pictures/big_brothers_big_sisters.png';
 
 import {
   BrowserRouter as Router,
