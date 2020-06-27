@@ -37,6 +37,7 @@ class App extends Component {
       loadingNextMeeting: true,
       active: false,
       isOnVideo: false,
+      notAllowed: false,
       roomId: "",
       newVideo: "",
       pageLoaded: false,
@@ -142,14 +143,21 @@ class App extends Component {
     if (this.state.isOnVideo) {
       var con = window.confirm("האם אתה בטוח שברצונך לסיים את שיחת הוידאו?");
       if (con)
-        this.setState({ directVid: false, hostVid: null, isOnVideo: false })
+        this.setState({ directVid: false, hostVid: null, isOnVideo: false });
       else
         event.preventDefault();
     }
+    else if (this.state.notAllowed)
+      this.setState({ directVid: false, hostVid: null, isOnVideo: false });
+
   }
 
   modifyVideoStream = (localSt, remoteSt) => {
     this.setState({ isOnVideo: true });
+  }
+
+  modifyVideoNotAllowed = () => {
+    this.setState({ notAllowed: true });
   }
 
   updateConnection = () => {
@@ -201,7 +209,7 @@ class App extends Component {
             })
         })
       }).then(() => {
-        console.log("Doc has removed successfully")
+        console.log("Docs has removed successfully")
       })
       .catch(() => {
         console.log("Problem in removing Doc")
@@ -248,10 +256,6 @@ class App extends Component {
   componentDidUpdate(prevProp, prevState) {
     if (this.state.userDetails.email !== prevState.userDetails.email) {
       var mateDoc;
-      if (this.state.userDetails.locked === true) {
-        alert("משתמש זה נעול. אנא פנה למנהל המערכת לצורך שחרור הנעילה.");
-        firebase.auth().signOut();
-      }
       if (typeof (this.state.userDetails.link_user) === 'undefined' || this.state.userDetails.link_user === "") {
         alert("למשתמש זה אין חונך/חניך. אנא פנה למנהל המערכת עם הודעה זו.");
         firebase.auth().signOut();
@@ -352,6 +356,7 @@ class App extends Component {
               hostVid={this.state.hostVid}
               room_id={this.state.roomId}
               removeDocs={this.removeDocs}
+              modifyVideoNotAllowed={this.modifyVideoNotAllowed}
             />
 
           </Route>{" "}

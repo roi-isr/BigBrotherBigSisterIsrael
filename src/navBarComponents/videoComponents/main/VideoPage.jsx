@@ -59,6 +59,7 @@ class VideoPage extends Component {
       checkFlag: false,
       firstSnapShot: null,
       secondSnapShot: null,
+      firstTimeDirect: true,
       mute_icon: "black",
       video_icon: "black",
       rem_mute_icon: "black",
@@ -92,11 +93,11 @@ class VideoPage extends Component {
 
   componentDidUpdate(prevProp) {
     if (this.props.directVid !== prevProp.directVid)
-      this.startVideoDirectly();
+      if (this.props.directVid)
+        this.startVideoDirectly();
   }
 
   startVideo = async () => {
-
     navigator.mediaDevices.getUserMedia(constraints)
       .then(stream => {
         console.log("Chrome has received your local stream successfully\nUsing video device: " +
@@ -113,7 +114,10 @@ class VideoPage extends Component {
           this.props.modifyVideoStream(); // modifing app about a new video stream
         });
       })
-      .catch(e => alert(e.name));
+      .catch(e => {
+        alert(e.name);
+        this.props.modifyVideoNotAllowed();
+      });
   }
 
   createRoom = async () => {

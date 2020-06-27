@@ -49,7 +49,7 @@ class LinkUsers extends Component {
                 if (con) {
                     this.linkUser(studentId);
                     this.linkUser(mentorId);
-                    console.log("המשתמש עודכן בהצלחה!");
+                    console.log("המשתמשים עודכנו בהצלחה!");
                     alert("עודכן בהצלחה!\n" + this.state.mentorName + " הוא החונך של " + this.state.studentName + ".");
                     this.setState({ studentId: "", mentorId: "" });
                 }
