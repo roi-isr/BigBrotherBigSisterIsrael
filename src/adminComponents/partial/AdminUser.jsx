@@ -38,7 +38,7 @@ class AdminUser extends Component {
             }
             if (this.state.address !== "")
               newUser.address = this.state.address;
-            if (this.state.addOnce === false) {
+            if (this.state.addOnce === false && this.state.id !== "") {
               this.usersRef.doc(user.uid).set(newUser)
                 .then(() => {
                   alert("המשתמש נוסף למערכת בהצלחה!");
