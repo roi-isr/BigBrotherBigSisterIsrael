@@ -149,7 +149,6 @@ class App extends Component {
     }
     else if (this.state.notAllowed)
       this.setState({ directVid: false, hostVid: null, isOnVideo: false });
-
   }
 
   modifyVideoStream = (localSt, remoteSt) => {
